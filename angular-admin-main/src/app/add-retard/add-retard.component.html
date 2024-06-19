@@ -1,0 +1,32 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="retardList">
+
+        <ng-container matColumnDef="firstname">
+            <th mat-header-cell *matHeaderCellDef>Prénom</th>
+            <td mat-cell *matCellDef="let utilisateur">
+                {{ utilisateur.firstname }}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef>Nom</th>
+            <td mat-cell *matCellDef="let utilisateur">{{ utilisateur.lastname }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="justifie">
+            <th mat-header-cell *matHeaderCellDef>Motif</th>
+            <td mat-cell *matCellDef="let retard">{{ retard.justifie }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="retard_date">
+            <th mat-header-cell *matHeaderCellDef>Date du retard</th>
+            <td mat-cell *matCellDef="let retard">{{ retard.retard_date }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['lastname', 'firstname', 'justifie', 'retard_date']"></tr>
+        <tr mat-row *matRowDef="
+        let row;
+        columns: ['lastname', 'firstname', 'justifie', 'retard_date']
+      "></tr>
+    </table>
+</div>
